@@ -1,12 +1,57 @@
-# React + Vite
+# 🎯 React Quiz App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple quiz app built with **React**. It displays one question at a time, allows users to select options, and navigate through questions. Super beginner-friendly and a great starter project.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- ✅ Multiple-choice questions
+- ✅ Track selected answers
+- ✅ Navigate with "Next" and "Previous"
+- ✅ Answer stays saved when moving between questions
+- ✅ Clean layout (you can style it your way)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🧠 How It Works
+
+- Questions are stored in an array called `questionsBank`.
+- The app uses:
+  - `useState()` to track current question index
+  - Another `useState()` to store selected answers in an array
+- When a user selects an option, it updates the answer in the array.
+- The selected option is highlighted.
+- Navigation buttons let users move between questions, but stay disabled if no answer is selected.
+
+---
+
+## 🛠️ Tech Stack
+
+- React (Functional Components)
+- JavaScript (ES6+)
+- HTML + CSS (Basic styling, feel free to level up)
+
+---
+
+## 📁 Project Structure
+
+📦 quiz-app
+┣ 📄 Quiz.jsx
+┣ 📄 App.jsx
+┣ 📄 index.js
+┣ 📄 README.md
+
+
+
+---
+
+## 🧪 How to Run
+
+1. Make sure you have Node.js installed.
+2. Open your terminal in the project folder.
+3. Run these commands:
+
+```bash
+npm install
+npm start
