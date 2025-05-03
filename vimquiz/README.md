@@ -11,6 +11,8 @@ This is a simple quiz app built with **React**. It displays one question at a ti
 - ✅ Navigate with "Next" and "Previous"
 - ✅ Answer stays saved when moving between questions
 - ✅ Clean layout (you can style it your way)
+- ✅ See The Result At The Last;
+- ✅ Restaart  The Quiz Again;
 
 ---
 
