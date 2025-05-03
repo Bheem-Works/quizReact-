@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 
+//  storing the questions;
 const questionsBank = [
     {
         question: 'Who is the singer of "Shape of You"?',
@@ -23,36 +24,33 @@ const questionsBank = [
     }
 ];
 
-//  storing the questions;
 function Quiz() {
+    const intialAnswer  = [null,null,null,null] // Why ? becasue there are the four answer and the answer will be the null at first when user clikc then the answer will be store; 
+    const [userAnswer,setUserAnswer] = useState(intialAnswer); // why? when the user click the intial null become clicked value;
+    const [currentQuestion,setCurrentQuestion] = useState(0); // why ? to pass the current question index 
+    const selectedAnswer = userAnswer[currentQuestion]; // why ? to see if the user don't clikc it will not turn able to next buttons;
 
-    const intialAnswer  = [null,null,null,null] 
-    const [userAnswer,setUserAnswer] = useState(intialAnswer); 
-    const [currentQuestion,setCurrentQuestion] = useState(0);
-    const selectedAnswer = userAnswer[currentQuestion];
-
-    function handleSelectedOptions (option) {
-        const newUserAnswer = [...userAnswer];
-        newUserAnswer[currentQuestion] = option;
-        setUserAnswer(newUserAnswer);
+    function handleSelectedOptions (option) { // why ? to see which options is selected 
+        const newUserAnswer = [...userAnswer]; // why ? copying by using the thread operator to pass to the new users;
+        newUserAnswer[currentQuestion] = option; // if the user select some value then it should be like [value,null,null,null];
+        setUserAnswer(newUserAnswer); // passing the user answer options;
     }
+
     
     function goToNext () {
-            setCurrentQuestion(currentQuestion + 1);
+            setCurrentQuestion(currentQuestion + 1); 
         }
 
     function goToPrevious () {
         setCurrentQuestion(currentQuestion -1);
     }
     return(
-            // first step render 
         <div>
-            <h2>Question {currentQuestion + 1 } </h2>
+            <h2>Question {currentQuestion + 1 } </h2>  {/* why? when the user page load to the next  the current question will also be added from 1; */}
             <p>{questionsBank[currentQuestion].question}</p>
             {questionsBank[currentQuestion].options.map((option,index) => (
                 <button key={index} className={"option" +  (selectedAnswer === option ? " selected" : "")} onClick={() => handleSelectedOptions(option)}>{option}</button>
             ))}
-
             <div className='nav-buttons'>
                 <button onClick={goToPrevious} disabled={currentQuestion === 0}>Previous</button>
                 <button onClick={goToNext} disabled={!selectedAnswer}>Next</button>
