@@ -53,9 +53,16 @@ function Quiz() {
         setCurrentQuestion(currentQuestion -1);
     }
 
+    // setting to the intial value to when the restartQuiz button is clicked but passed throught the props
+    function restartQuiz () {
+        setUserAnswer(intialAnswer);
+        setCurrentQuestion(0);
+    setIsQuizFinished(false);
+    }
+
     // if the is quizFinishes is true if they the user completed quiz then show the result Ui or then don't show;
     if(isQuizfinished) {
-        return <Result />
+        return <Result userAnswer={userAnswer} questionsBank={questionsBank} restartQuiz={restartQuiz}/>
     } else {
 
         return(
